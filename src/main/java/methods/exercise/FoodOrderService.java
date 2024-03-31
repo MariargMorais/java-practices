@@ -3,22 +3,18 @@ import java.math.BigDecimal;
 
 public class FoodOrderService {
 
-    public void placeOrder(String itemName, BigDecimal itemPrice, int quantity,
-                           String deliveryAddress, String specialInstructions,
-                           boolean isExpressDelivery, boolean applyDiscount) {
-        validateOrder(itemName, itemPrice, quantity, deliveryAddress, specialInstructions, isExpressDelivery, applyDiscount);
-        BigDecimal totalAmount = calculateTotalPrice(itemPrice, quantity, isExpressDelivery, applyDiscount);
+    public void placeOrder(FoodOrder newfoodOrder) {
+        validateOrder(newfoodOrder);
+        BigDecimal totalAmount = calculateTotalPrice(newfoodOrder);
         initiatePayment(totalAmount);
-        initiateProduction(itemName, quantity, deliveryAddress, specialInstructions, isExpressDelivery);
+        initiateProduction(newfoodOrder);
     }
 
-    private void validateOrder(String itemName, BigDecimal itemPrice, int quantity,
-                               String deliveryAddress, String specialInstructions,
-                               boolean isExpressDelivery, boolean applyDiscount) {
+    private void validateOrder(FoodOrder foodOrder) {
         // implementation skipped for brevity
     }
 
-    private BigDecimal calculateTotalPrice(BigDecimal itemPrice, int quantity, boolean isExpressDelivery, boolean applyDiscount) {
+    private BigDecimal calculateTotalPrice(FoodOrder foodOrder) {
         // implementation skipped for brevity
         return BigDecimal.ONE;
     }
@@ -27,9 +23,7 @@ public class FoodOrderService {
         // implementation skipped for brevity
     }
 
-    private void initiateProduction(String itemName, int quantity,
-                                    String deliveryAddress, String specialInstructions,
-                                    boolean isExpressDelivery) {
+    private void initiateProduction(FoodOrder foodOrder) {
         // implementation skipped for brevity
     }
 

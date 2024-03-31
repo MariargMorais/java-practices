@@ -13,5 +13,7 @@ import java.math.BigDecimal;
 //Important: When changing the parameters into record fields, do not change their order.
 //Use the same order that you see in the placeOrder method signature.
 //The automated test that verifies your solution will depend on that order.
-public class FoodOrder {
+public record FoodOrder(String itemName, BigDecimal itemPrice, int quantity, String deliveryAddress,
+                        String specialInstructions, boolean isExpressDelivery, boolean applyDiscount) {
+
 }
