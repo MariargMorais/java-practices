@@ -8,7 +8,7 @@ package exceptions.exercise;
 //--Ensure that the error message provided when throwing IllegalArgumentException includes the value of the specific data that caused the problem.
 public class DataProcessor {
 
-    private boolean isProcessingEnabled;
+    private final boolean isProcessingEnabled;
 
     public DataProcessor(boolean isProcessingEnabled) {
         this.isProcessingEnabled = isProcessingEnabled;
@@ -16,21 +16,11 @@ public class DataProcessor {
 
     public void processData(String data) {
         if (data == null || data.trim().isEmpty()) {
-            throw new CustomException("Invalid data provided");
+            throw new IllegalArgumentException("data=" + data);
         }
 
         if (!isProcessingEnabled) {
-            throw new CustomException("Data processing is not enabled");
-        }
-
-        // Original logic for processing data
-        // ...
-    }
-
-    // Custom exception class
-    static class CustomException extends IllegalArgumentException {
-        public CustomException(String message) {
-            super(message);
+            throw new IllegalStateException("Data processing is not enabled");
         }
     }
 }
