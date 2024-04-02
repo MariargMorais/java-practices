@@ -12,7 +12,7 @@ import java.util.Set;
 //ReportGenerator should simply become a concrete class (with the implementation that is currently there in ReportGeneratorImpl) rather than an interface.
 //
 //After this change, the file ReportGeneratorImpl.java will no longer be needed.
-// Since the Udemy platform doesn't allow you to delete a file, simply remove the class declaration from this file and just put a comment in the file like: "// skipped"
+//Since the Udemy platform doesn't allow you to delete a file, simply remove the class declaration from this file and just put a comment in the file like: "// skipped"
 
 class ReportService {
 
@@ -22,7 +22,7 @@ class ReportService {
         this.reportGenerator = reportGenerator;
     }
 
-    public void processReports(HashSet<String> reportData) {
+    public void processReports(Set<String> reportData) {
         // Processing logic using the reportData
         reportGenerator.generateReport(reportData);
     }
